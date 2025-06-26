@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Bat Ball Stump Game</title>
+
+  <style>
+    .box {
+      margin-top: 200px;
+      margin-left: 450px;
+      width: 400px;
+      height: 200px;
+      background-color: tomato;
+    }
+
+    .box pre {
+      top: 30px;
+      position: relative;
+      margin-left: 70px;
+      font-size: 25px;
+      color: yellow;
+      font-weight: 900;
+    }
+
+    .button {
+      margin-left: 40px;
+      margin-top: 80px;
+    }
+
+    button {
+      margin-right: 10px;
+      width: 100px;
+      height: 40px;
+      background-color: cyan;
+      color: aliceblue;
+      border-radius: 30px;
+      font-size: 20px;
+      font-weight: 900;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="box">
+    <pre>BAT BALL STUMP GAME</pre>
+    <div class="button">
+      <button onclick="playGame('bat')">BAT</button>
+      <button onclick="playGame('ball')">BALL</button>
+      <button onclick="playGame('stump')">STUMP</button>
+    </div>
+  </div>
+
+  <script>
+    function playGame(userChoice) {
+      const choices = ['bat', 'ball', 'stump'];
+      const num = Math.floor(Math.random() * 3);
+      const computerChoice = choices[num];
+
+      let resultMsg;
+
+      if (userChoice === computerChoice) {
+        resultMsg = "It's a tie";
+      } else if (
+        (userChoice === 'bat' && computerChoice === 'ball') ||
+        (userChoice === 'ball' && computerChoice === 'stump') ||
+        (userChoice === 'stump' && computerChoice === 'bat')
+      ) {
+        resultMsg = "User won";
+      } else {
+        resultMsg = "Computer has won";
+      }
+
+      alert(`You have chosen ${userChoice}. Computer choice is ${computerChoice} and ${resultMsg}`);
+    }
+  </script>
+
+</body>
+</html>
